@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy New Year For My Sharmile Maharaj</title>
+
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+
+<body>
+
+<div id="effect-layer"></div>
+
+<div class="container">
+    
+<h1 class="title glow">
+✨ Happy New Year 2026 ✨<br>
+My Dear Sharmile Maharaj 💖
+</h1>
+
+<p class="sub">
+Current Date & Time 🕒<br>
+<span id="current-time"></span>
+</p>
+
+<p class="sub">
+Countdown to New Year 🎆<br>
+<span id="countdown"></span>
+</p>
+
+<p class="intro">
+This little site is made only for you —  
+my Naughty Maharaj, my Sigma Boy, my Champ, my Hero…  
+mera bachha my cutu 💞
+</p>
+
+<button class="btn" onclick="goToEnvelope()">
+Open Your Surprise 💌
+</button>
+
+<button class="btn music-btn" onclick="toggleMusic()">
+🎵 Music
+</button>
+
+<audio id="bg-music">
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+// ---------- LIVE DATE & TIME ----------
+setInterval(()=>{
+  document.getElementById("current-time").innerText =
+  new Date().toLocaleString();
+},1000);
+
+// ---------- COUNTDOWN ----------
+function updateCountdown(){
+  // New Year 2026
+  const target = new Date("Jan 1, 2026 00:00:00").getTime();
+  const now = new Date().getTime();
+  const diff = target - now;
+
+  if(diff <= 0){
+    document.getElementById("countdown").innerText =
+      "🎊 It's New Year — My Sharmile Maharaj 🎊";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+  const s = Math.floor((diff%(1000*60))/1000);
+
+  document.getElementById("countdown").innerText =
+   `${d} days • ${h} hrs • ${m} mins • ${s} secs`;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
